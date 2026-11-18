@@ -1,0 +1,17 @@
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.exe
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.deps.json
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.runtimeconfig.json
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.runtimeconfig.dev.json
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.dll
+C:\CSharpMeStudy\bais\bais\bin\Debug\net10.0\bais.pdb
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.AssemblyInfoInputs.cache
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.AssemblyInfo.cs
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.csproj.CoreCompileInputs.cache
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.sourcelink.json
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.dll
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\refint\bais.dll
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.pdb
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.genruntimeconfig.cache
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\ref\bais.dll
+C:\CSharpMeStudy\bais\bais\obj\Debug\net10.0\bais.csproj.Up2Date
