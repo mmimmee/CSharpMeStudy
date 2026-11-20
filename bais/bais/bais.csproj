@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="상수와열거형2.cs" />
+  </ItemGroup>
+
 </Project>

@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\CSharpMeStudy\\bais\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABE38C9A-3F38-4A61-A610-78E5BAACE878}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABE38C9A-3F38-4A61-A610-78E5BAACE878}|bais\\bais.csproj|solutionrelative:bais\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\\uBC30\uC5F4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\\uBC30\uC5F4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,22 +25,44 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "data.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\data.cs",
+              "RelativeDocumentMoniker": "bais\\data.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\data.cs*",
+              "RelativeToolTip": "bais\\data.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T11:24:42.573Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Program.cs",
-              "RelativeDocumentMoniker": "bais\\Program.cs",
-              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Program.cs*",
-              "RelativeToolTip": "bais\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Title": "\uBC30\uC5F4.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs",
+              "RelativeDocumentMoniker": "bais\\\uBC30\uC5F4.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs*",
+              "RelativeToolTip": "bais\\\uBC30\uC5F4.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T11:27:31.287Z",
-              "EditorCaption": "",
-              "OwnerCaption": "%2"
+              "WhenOpened": "2026-11-20T11:57:29.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
+              "RelativeDocumentMoniker": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs*",
+              "RelativeToolTip": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T11:34:40.233Z",
+              "EditorCaption": ""
             }
           ]
         }
