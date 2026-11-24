@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="data.cs" />
+    <Compile Remove="메인1.cs" />
+    <Compile Remove="배열.cs" />
     <Compile Remove="상수와열거형2.cs" />
+    <Compile Remove="열거활용 게임 예제.cs" />
+    <Compile Remove="클래스.cs" />
   </ItemGroup>
 
 </Project>

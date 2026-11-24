@@ -3,6 +3,40 @@
   "WorkspaceRootPath": "C:\\CSharpMeStudy\\bais\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\gameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\gameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\program (1).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\program (1).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\minul\\Downloads\\Monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\minul\\Downloads\\Program (1).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\\uBA54\uC7781.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\\uBA54\uC7781.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\\uBC30\uC5F4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\\uBC30\uC5F4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,6 +47,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\CSharpMeStudy\\bais\\bais\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:bais\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,47 +60,187 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "data.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\data.cs",
               "RelativeDocumentMoniker": "bais\\data.cs",
-              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\data.cs*",
-              "RelativeToolTip": "bais\\data.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\data.cs",
+              "RelativeToolTip": "bais\\data.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-20T11:24:42.573Z",
               "IsPinned": true,
-              "EditorCaption": ""
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WaveManager.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\WaveManager.cs",
+              "RelativeDocumentMoniker": "bais\\WaveManager.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\WaveManager.cs",
+              "RelativeToolTip": "bais\\WaveManager.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:21:43.98Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "\uBC30\uC5F4.cs",
-              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs",
-              "RelativeDocumentMoniker": "bais\\\uBC30\uC5F4.cs",
-              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs*",
-              "RelativeToolTip": "bais\\\uBC30\uC5F4.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Title": "GameEngine.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\GameEngine.cs",
+              "RelativeDocumentMoniker": "bais\\GameEngine.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\GameEngine.cs",
+              "RelativeToolTip": "bais\\GameEngine.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwBgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T11:57:29.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-24T12:17:55.608Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program (1).cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Program (1).cs",
+              "RelativeDocumentMoniker": "bais\\Program (1).cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Program (1).cs",
+              "RelativeToolTip": "bais\\Program (1).cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:13:09.778Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Player.cs",
+              "RelativeDocumentMoniker": "bais\\Player.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Player.cs",
+              "RelativeToolTip": "bais\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:17:03.242Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Monster.cs",
+              "RelativeDocumentMoniker": "bais\\Monster.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Monster.cs",
+              "RelativeToolTip": "bais\\Monster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:17:17.96Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\Users\\minul\\Downloads\\Monster.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\minul\\Downloads\\Monster.cs",
+              "ToolTip": "C:\\Users\\minul\\Downloads\\Monster.cs",
+              "RelativeToolTip": "..\\..\\Users\\minul\\Downloads\\Monster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:04:56.522Z",
+              "OwnerCaption": "%3"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program (1).cs",
+              "DocumentMoniker": "C:\\Users\\minul\\Downloads\\Program (1).cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\minul\\Downloads\\Program (1).cs",
+              "ToolTip": "C:\\Users\\minul\\Downloads\\Program (1).cs",
+              "RelativeToolTip": "..\\..\\Users\\minul\\Downloads\\Program (1).cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T12:03:55.463Z",
+              "OwnerCaption": "%3"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TextFile1.txt",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\TextFile1.txt",
+              "RelativeDocumentMoniker": "bais\\TextFile1.txt",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\TextFile1.txt",
+              "RelativeToolTip": "bais\\TextFile1.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-11-24T11:59:08.347Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Class1.cs",
+              "RelativeDocumentMoniker": "bais\\Class1.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Class1.cs",
+              "RelativeToolTip": "bais\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T11:10:46.361Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "\uBA54\uC7781.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBA54\uC7781.cs",
+              "RelativeDocumentMoniker": "bais\\\uBA54\uC7781.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uBA54\uC7781.cs",
+              "RelativeToolTip": "bais\\\uBA54\uC7781.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T11:13:48.164Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "\uBC30\uC5F4.cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs",
+              "RelativeDocumentMoniker": "bais\\\uBC30\uC5F4.cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs",
+              "RelativeToolTip": "bais\\\uBC30\uC5F4.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T11:57:29.369Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
               "RelativeDocumentMoniker": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
-              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs*",
-              "RelativeToolTip": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
+              "RelativeToolTip": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-20T11:34:40.233Z",
-              "EditorCaption": ""
+              "OwnerCaption": "%2"
             }
           ]
         }
