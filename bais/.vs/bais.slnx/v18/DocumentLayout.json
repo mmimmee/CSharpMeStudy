@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\CSharpMeStudy\\bais\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|c:\\csharpmestudy\\bais\\bais\\program (2).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12746123-2BFE-5FFD-B76C-425763CE867D}|bais\\bais.csproj|solutionrelative:bais\\program (2).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\CSharpMeStudy\\bais\\\uB370\uC774\uD130\uD750\uB984..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:\uB370\uC774\uD130\uD750\uB984..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -48,11 +52,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "data.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\data.cs",
               "RelativeDocumentMoniker": "bais\\data.cs",
@@ -62,12 +66,29 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-20T11:24:42.573Z",
               "IsPinned": true,
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program (2).cs",
+              "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\Program (2).cs",
+              "RelativeDocumentMoniker": "bais\\Program (2).cs",
+              "ToolTip": "C:\\CSharpMeStudy\\bais\\bais\\Program (2).cs",
+              "RelativeToolTip": "bais\\Program (2).cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-25T11:49:14.624Z",
               "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "\uB370\uC774\uD130\uD750\uB984..cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\\uB370\uC774\uD130\uD750\uB984..cs",
               "RelativeDocumentMoniker": "\uB370\uC774\uD130\uD750\uB984..cs",
@@ -81,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program (1).cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\Program (1).cs",
               "RelativeDocumentMoniker": "Program (1).cs",
@@ -90,16 +111,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-24T12:08:33.925Z",
-              "EditorCaption": "",
               "OwnerCaption": "%3"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "\uD074\uB798\uC2A4.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uD074\uB798\uC2A4.cs",
               "RelativeDocumentMoniker": "bais\\\uD074\uB798\uC2A4.cs",
@@ -108,16 +124,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-24T12:07:27.393Z",
-              "EditorCaption": "",
               "OwnerCaption": "%3"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program (1).cs",
               "DocumentMoniker": "C:\\Users\\minul\\Downloads\\Program (1).cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\minul\\Downloads\\Program (1).cs",
@@ -130,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TextFile1.txt",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\TextFile1.txt",
               "RelativeDocumentMoniker": "bais\\TextFile1.txt",
@@ -143,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Monster.cs",
               "DocumentMoniker": "C:\\Users\\minul\\Downloads\\Monster.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\minul\\Downloads\\Monster.cs",
@@ -156,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "\uBA54\uC7781.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBA54\uC7781.cs",
               "RelativeDocumentMoniker": "bais\\\uBA54\uC7781.cs",
@@ -165,12 +176,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-23T11:13:48.164Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "\uBC30\uC5F4.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uBC30\uC5F4.cs",
               "RelativeDocumentMoniker": "bais\\\uBC30\uC5F4.cs",
@@ -183,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
               "DocumentMoniker": "C:\\CSharpMeStudy\\bais\\bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",
               "RelativeDocumentMoniker": "bais\\\uC5F4\uAC70\uD65C\uC6A9 \uAC8C\uC784 \uC608\uC81C.cs",

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OOP 타워 디펜스 (Abstract Tower &amp; Subclasses)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Malgun Gothic', sans-serif; }
+  body { background: #12151c; color: #e2e8f0; display: flex; flex-direction: column; align-items: center; padding: 16px; min-height: 100vh; }
+  h1 { font-size: 20px; margin-bottom: 10px; color: #38bdf8; }
+  .layout { display: flex; gap: 16px; max-width: 1120px; width: 100%; justify-content: center; flex-wrap: wrap; }
+  .game-panel { display: flex; flex-direction: column; gap: 8px; }
+  .hud { display: flex; justify-content: space-between; align-items: center; background: #1e2430; padding: 10px 14px; border-radius: 8px; border: 1px solid #334155; font-size: 14px; }
+  .hud span strong { color: #fbbf24; }
+  .hud .life strong { color: #f87171; }
+  canvas { background: #1a2218; border: 2px solid #334155; border-radius: 8px; cursor: crosshair; display: block; }
+  .controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tower-btn { background: #1e2430; border: 2px solid #334155; color: #f8fafc; padding: 10px 8px; border-radius: 8px; cursor: pointer; text-align: left; transition: 0.15s; }
+  .tower-btn:hover { border-color: #64748b; }
+  .tower-btn.active { border-color: #38bdf8; background: #0f2942; }
+  .tower-btn .t-name { font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; }
+  .tower-btn .t-desc { font-size: 11px; color: #94a3b8; margin-top: 4px; line-height: 1.3; }
+  .action-bar { display: flex; gap: 8px; }
+  button.action { flex: 1; padding: 10px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px; }
+  .btn-wave { background: #10b981; color: #052e16; }
+  .btn-wave:hover { background: #34d399; }
+  .btn-reset { background: #475569; color: #f8fafc; }
+  .btn-reset:hover { background: #64748b; }
+  .side-panel { width: 320px; display: flex; flex-direction: column; gap: 10px; }
+  .box { background: #1e2430; border: 1px solid #334155; border-radius: 8px; padding: 12px; font-size: 13px; }
+  .box h2 { font-size: 14px; color: #38bdf8; margin-bottom: 8px; border-bottom: 1px solid #334155; padding-bottom: 4px; }
+  #logBox { height: 260px; overflow-y: auto; font-family: Consolas, monospace; font-size: 11.5px; line-height: 1.45; color: #cbd5e1; display: flex; flex-direction: column-reverse; }
+  .log-entry { border-bottom: 1px dashed #293242; padding: 3px 0; }
+  .arch-list { list-style: none; font-size: 12px; line-height: 1.5; color: #cbd5e1; }
+  .arch-list li { margin-bottom: 4px; }
+  code { background: #0f172a; padding: 1px 4px; border-radius: 3px; color: #7dd3fc; }
+</style>
+</head>
+<body>
+<h1>OOP 타워 디펜스 — Abstract Tower &amp; Subclasses</h1>
+
+<div class="layout">
+  <div class="game-panel">
+    <div class="hud">
+      <span>골드: <strong id="goldDisplay">250</strong> G</span>
+      <span class="life">생명력: <strong id="lifeDisplay">20</strong></span>
+      <span>웨이브: <strong id="waveDisplay">0</strong></span>
+      <span>선택 타워: <strong id="selectedDisplay">ArrowTower</strong></span>
+    </div>
+
+    <canvas id="gameCanvas" width="720" height="440"></canvas>
+
+    <div class="controls" id="towerButtons">
+      <button class="tower-btn active" data-type="arrow">
+        <div class="t-name"><span style="color:#a3e635;">ArrowTower</span><span>50G</span></div>
+        <div class="t-desc">빠른 공속, 단일 사격<br>사거리 130 / 피해 18</div>
+      </button>
+      <button class="tower-btn" data-type="ice">
+        <div class="t-name"><span style="color:#38bdf8;">IceTower</span><span>70G</span></div>
+        <div class="t-desc">냉기 투사체, 2초 둔화(50%)<br>사거리 120 / 피해 10</div>
+      </button>
+      <button class="tower-btn" data-type="cannon">
+        <div class="t-name"><span style="color:#fb923c;">CannonTower</span><span>100G</span></div>
+        <div class="t-desc">폭발 포탄, 범위 스플래시<br>사거리 145 / 피해 45</div>
+      </button>
+      <button class="tower-btn" data-type="supporter">
+        <div class="t-name"><span style="color:#e879f9;">SupporterTower</span><span>80G</span></div>
+        <div class="t-desc">주변 타워 공속/공격력 버프<br>지원 반경 110 (+30%)</div>
+      </button>
+    </div>
+
+    <div class="action-bar">
+      <button class="action btn-wave" id="startWaveBtn">다음 웨이브 시작 (Space)</button>
+      <button class="action btn-reset" id="resetBtn">게임 초기화</button>
+    </div>
+  </div>
+
+  <div class="side-panel">
+    <div class="box">
+      <h2>클래스 계층 &amp; 게임 루프 구조</h2>
+      <ul class="arch-list">
+        <li><code>abstract class Tower</code>: 공통 위치, 사거리, 쿨타임, 주변 몬스터 탐지(<code>findTargetInRange</code>) 및 추상 <code>action()</code> 정의</li>
+        <li><code>ArrowTower extends Tower</code>: 빠른 단일 화살 발사</li>
+        <li><code>IceTower extends Tower</code>: 적 이동속도 감속 부여</li>
+        <li><code>CannonTower extends Tower</code>: 착탄 지점 반경 광역 피해</li>
+        <li><code>SupporterTower extends Tower</code>: 범위 내 아군 타워 버프</li>
+        <li><strong>Loop</strong>: <code>processInput()</code> → <code>update(dt)</code> → <code>render()</code></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>출력 로그 (전투 / 시스템 출력)</h2>
+      <div id="logBox"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==========================================
+// 출력 유틸리티 (Output Console & UI Log)
+// ==========================================
+const logBox = document.getElementById("logBox");
+function logOutput(message, color = "#cbd5e1") {
+  const div = document.createElement("div");
+  div.className = "log-entry";
+  div.style.color = color;
+  div.textContent = `[${new Date().toLocaleTimeString('ko-KR', {hour12:false})}] ${message}`;
+  logBox.prepend(div);
+  if (logBox.children.length > 60) {
+    logBox.removeChild(logBox.lastChild);
+  }
+}
+
+// ==========================================
+// 몬스터 & 투사체/이펙트 엔티티
+// ==========================================
+class Monster {
+  constructor(hp, speed, reward, path) {
+    this.maxHp = hp;
+    this.hp = hp;
+    this.baseSpeed = speed;
+    this.reward = reward;
+    this.path = path;
+    this.waypointIndex = 0;
+    this.x = path[0].x;
+    this.y = path[0].y;
+    this.slowTimer = 0;
+    this.slowFactor = 1.0;
+    this.dead = false;
+    this.reachedEnd = false;
+  }
+
+  applySlow(factor, duration) {
+    this.slowFactor = Math.min(this.slowFactor, factor);
+    this.slowTimer = Math.max(this.slowTimer, duration);
+  }
+
+  takeDamage(amount) {
+    if (this.dead) return;
+    this.hp -= amount;
+    if (this.hp <= 0) {
+      this.hp = 0;
+      this.dead = true;
+    }
+  }
+
+  update(dt) {
+    if (this.dead || this.reachedEnd) return;
+
+    if (this.slowTimer > 0) {
+      this.slowTimer -= dt;
+      if (this.slowTimer <= 0) this.slowFactor = 1.0;
+    }
+
+    const target = this.path[this.waypointIndex + 1];
+    if (!target) {
+      this.reachedEnd = true;
+      return;
+    }
+
+    const dx = target.x - this.x;
+    const dy = target.y - this.y;
+    const dist = Math.hypot(dx, dy);
+    const currentSpeed = this.baseSpeed * this.slowFactor;
+
+    if (dist <= currentSpeed * dt) {
+      this.x = target.x;
+      this.y = target.y;
+      this.waypointIndex++;
+      if (this.waypointIndex >= this.path.length - 1) {
+        this.reachedEnd = true;
+      }
+    } else {
+      this.x += (dx / dist) * currentSpeed * dt;
+      this.y += (dy / dist) * currentSpeed * dt;
+    }
+  }
+}
+
+class Projectile {
+  constructor(x, y, target, speed, damage, color, onHitCallback) {
+    this.x = x;
+    this.y = y;
+    this.target = target;
+    this.speed = speed;
+    this.damage = damage;
+    this.color = color;
+    this.onHitCallback = onHitCallback;
+    this.active = true;
+  }
+
+  update(dt, monsters) {
+    if (!this.active) return;
+    if (this.target.dead || this.target.reachedEnd) {
+      this.active = false;
+      return;
+    }
+
+    const dx = this.target.x - this.x;
+    const dy = this.target.y - this.y;
+    const dist = Math.hypot(dx, dy);
+
+    if (dist <= this.speed * dt || dist < 8) {
+      this.x = this.target.x;
+      this.y = this.target.y;
+      if (this.onHitCallback) this.onHitCallback(this.target, monsters);
+      this.active = false;
+    } else {
+      this.x += (dx / dist) * this.speed * dt;
+      this.y += (dy / dist) * this.speed * dt;
+    }
+  }
+}
+
+class VisualEffect {
+  constructor(x, y, maxRadius, color, duration = 0.25) {
+    this.x = x;
+    this.y = y;
+    this.maxRadius = maxRadius;
+    this.color = color;
+    this.duration = duration;
+    this.timer = duration;
+  }
+  update(dt) { this.timer -= dt; }
+  get alive() { return this.timer > 0; }
+}
+
+// ==========================================
+// 1. 추상 클래스: Tower
+// ==========================================
+class Tower {
+  constructor(x, y, name, cost, range, cooldown, damage, color) {
+    if (new.target === Tower) {
+      throw new Error("추상 클래스 Tower는 직접 인스턴스화할 수 없습니다.");
+    }
+    this.x = x;
+    this.y = y;
+    this.name = name;
+    this.cost = cost;
+    this.range = range;
+    this.baseCooldown = cooldown;
+    this.baseDamage = damage;
+    this.color = color;
+
+    this.cooldownTimer = 0;
+    this.buffMultiplier = 1.0; // SupporterTower에 의한 버프 배율
+    this.currentTarget = null;
+  }
+
+  resetBuff() {
+    this.buffMultiplier = 1.0;
+  }
+
+  applyBuff(multiplier) {
+    this.buffMultiplier = Math.max(this.buffMultiplier, multiplier);
+  }
+
+  get effectiveDamage() {
+    return Math.round(this.baseDamage * this.buffMultiplier);
+  }
+
+  get effectiveCooldown() {
+    return this.baseCooldown / this.buffMultiplier;
+  }
+
+  // 공통 기능: 주변 사거리 내 몬스터 탐지 (가장 앞선 몬스터 우선)
+  findTargetInRange(monsters) {
+    let bestTarget = null;
+    let bestProgress = -1;
+
+    for (const m of monsters) {
+      if (m.dead || m.reachedEnd) continue;
+      const dist = Math.hypot(m.x - this.x, m.y - this.y);
+      if (dist <= this.range) {
+        if (m.waypointIndex > bestProgress) {
+          bestProgress = m.waypointIndex;
+          bestTarget = m;
+        }
+      }
+    }
+    return bestTarget;
+  }
+
+  // 공통 갱신 로직: 쿨타임 감소 및 사거리 내 적 감지 시 행동 실행
+  update(dt, context) {
+    if (this.cooldownTimer > 0) {
+      this.cooldownTimer -= dt;
+    }
+
+    this.currentTarget = this.findTargetInRange(context.monsters);
+    if (this.currentTarget && this.cooldownTimer <= 0) {
+      this.attack(this.currentTarget, context);
+      this.cooldownTimer = this.effectiveCooldown;
+    }
+  }
+
+  // 추상 메서드: 하위 클래스에서 반드시 구현해야 하는 공격/행동
+  attack(target, context) {
+    throw new Error("하위 타워 클래스에서 attack() 메서드를 구현해야 합니다.");
+  }
+}
+
+// ==========================================
+// 2. 하위 클래스 구현 (Arrow, Ice, Cannon, Supporter)
+// ==========================================
+
+// ArrowTower: 빠르고 정확한 단일 화살 공격
+class ArrowTower extends Tower {
+  constructor(x, y) {
+    super(x, y, "ArrowTower", 50, 130, 0.55, 18, "#a3e635");
+  }
+
+  attack(target, context) {
+    const dmg = this.effectiveDamage;
+    context.projectiles.push(
+      new Projectile(this.x, this.y, target, 420, dmg, this.color, (hitTarget) => {
+        hitTarget.takeDamage(dmg);
+      })
+    );
+  }
+}
+
+// IceTower: 적에게 냉기 피해 및 이동 속도 50% 감속
+class IceTower extends Tower {
+  constructor(x, y) {
+    super(x, y, "IceTower", 70, 120, 0.95, 10, "#38bdf8");
+  }
+
+  attack(target, context) {
+    const dmg = this.effectiveDamage;
+    context.projectiles.push(
+      new Projectile(this.x, this.y, target, 340, dmg, this.color, (hitTarget) => {
+        hitTarget.takeDamage(dmg);
+        hitTarget.applySlow(0.5, 2.0);
+        context.effects.push(new VisualEffect(hitTarget.x, hitTarget.y, 24, "rgba(56,189,248,0.5)", 0.2));
+      })
+    );
+  }
+}
+
+// CannonTower: 느리지만 착탄 지점 반경 55px 광역 스플래시 피해
+class CannonTower extends Tower {
+  constructor(x, y) {
+    super(x, y, "CannonTower", 100, 145, 1.5, 45, "#fb923c");
+    this.splashRadius = 55;
+  }
+
+  attack(target, context) {
+    const dmg = this.effectiveDamage;
+    context.projectiles.push(
+      new Projectile(this.x, this.y, target, 280, dmg, this.color, (hitTarget, allMonsters) => {
+        context.effects.push(new VisualEffect(hitTarget.x, hitTarget.y, this.splashRadius, "rgba(251,146,60,0.45)", 0.3));
+        for (const m of allMonsters) {
+          if (!m.dead && !m.reachedEnd) {
+            const d = Math.hypot(m.x - hitTarget.x, m.y - hitTarget.y);
+            if (d <= this.splashRadius) {
+              m.takeDamage(dmg);
+            }
+          }
+        }
+      })
+    );
+  }
+}
+
+// SupporterTower: 직접 공격 대신 사거리 내 아군 타워 공격력/공속 30% 강화
+class SupporterTower extends Tower {
+  constructor(x, y) {
+    super(x, y, "SupporterTower", 80, 110, 0, 0, "#e879f9");
+  }
+
+  // SupporterTower는 몬스터를 공격하지 않고 주변 아군 타워에 버프를 제공하도록 update 오버라이드
+  update(dt, context) {
+    for (const tower of context.towers) {
+      if (tower === this || tower instanceof SupporterTower) continue;
+      const dist = Math.hypot(tower.x - this.x, tower.y - this.y);
+      if (dist <= this.range) {
+        tower.applyBuff(1.3);
+      }
+    }
+  }
+
+  attack() {
+    // 지원 타워는 직접 공격을 수행하지 않음
+  }
+}
+
+// ==========================================
+// 3. 게임 엔진 (입력 -> 갱신 -> 렌더링 루프)
+// ==========================================
+class TowerDefenseGame {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
+
+    // 맵 경로 웨이포인트
+    this.path = [
+      { x: 0, y: 90 },
+      { x: 560, y: 90 },
+      { x: 560, y: 220 },
+      { x: 160, y: 220 },
+      { x: 160, y: 350 },
+      { x: 720, y: 350 }
+    ];
+
+    this.towerCatalog = {
+      arrow: { cls: ArrowTower, cost: 50, label: "ArrowTower" },
+      ice: { cls: IceTower, cost: 70, label: "IceTower" },
+      cannon: { cls: CannonTower, cost: 100, label: "CannonTower" },
+      supporter: { cls: SupporterTower, cost: 80, label: "SupporterTower" }
+    };
+
+    // 입력 큐
+    this.inputQueue = [];
+    this.mousePos = { x: -100, y: -100 };
+    this.selectedTowerKey = "arrow";
+
+    this.bindInputs();
+    this.reset();
+  }
+
+  reset() {
+    this.gold = 250;
+    this.lives = 20;
+    this.wave = 0;
+    this.towers = [];
+    this.monsters = [];
+    this.projectiles = [];
+    this.effects = [];
+    this.spawnQueue = [];
+    this.spawnTimer = 0;
+    this.gameOver = false;
+    this.selectedPlacedTower = null;
+
+    logOutput("게임이 초기화되었습니다. 타워를 배치하고 웨이브를 시작하세요.", "#38bdf8");
+    this.updateHud();
+  }
+
+  // [입력] 사용자 마우스 및 키보드 이벤트 바인딩
+  bindInputs() {
+    this.canvas.addEventListener("mousemove", (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.mousePos.x = e.clientX - rect.left;
+      this.mousePos.y = e.clientY - rect.top;
+    });
+
+    this.canvas.addEventListener("click", (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.inputQueue.push({
+        type: "PLACE_TOWER",
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
+    });
+
+    document.querySelectorAll(".tower-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tower-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        this.inputQueue.push({ type: "SELECT_TYPE", key: btn.dataset.type });
+      });
+    });
+
+    document.getElementById("startWaveBtn").addEventListener("click", () => {
+      this.inputQueue.push({ type: "START_WAVE" });
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      this.reset();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        this.inputQueue.push({ type: "START_WAVE" });
+      } else if (e.key === "1") this.selectTowerButton("arrow");
+      else if (e.key === "2") this.selectTowerButton("ice");
+      else if (e.key === "3") this.selectTowerButton("cannon");
+      else if (e.key === "4") this.selectTowerButton("supporter");
+    });
+  }
+
+  selectTowerButton(key) {
+    const btn = document.querySelector(`.tower-btn[data-type="${key}"]`);
+    if (btn) btn.click();
+  }
+
+  isValidPlacement(x, y) {
+    if (x < 24 || x > this.canvas.width - 24 || y < 24 || y > this.canvas.height - 24) return false;
+
+    // 기존 타워와 겹침 방지
+    for (const t of this.towers) {
+      if (Math.hypot(t.x - x, t.y - y) < 38) return false;
+    }
+
+    // 몬스터 이동 경로 위 건설 방지
+    for (let i = 0; i < this.path.length - 1; i++) {
+      const a = this.path[i];
+      const b = this.path[i + 1];
+      if (this.distToSegment({ x, y }, a, b) < 34) return false;
+    }
+    return true;
+  }
+
+  distToSegment(p, v, w) {
+    const l2 = (v.x - w.x) ** 2 + (v.y - w.y) ** 2;
+    if (l2 === 0) return Math.hypot(p.x - v.x, p.y - v.y);
+    let t = ((p.x - v.x) * (w.x - v.x) + (p.y - v.y) * (w.y - v.y)) / l2;
+    t = Math.max(0, Math.min(1, t));
+    return Math.hypot(p.x - (v.x + t * (w.x - v.x)), p.y - (v.y + t * (w.y - v.y)));
+  }
+
+  // [입력 처리 단계]
+  processInput() {
+    while (this.inputQueue.length > 0) {
+      const cmd = this.inputQueue.shift();
+
+      if (cmd.type === "SELECT_TYPE") {
+        this.selectedTowerKey = cmd.key;
+        this.updateHud();
+      } else if (cmd.type === "START_WAVE") {
+        if (this.gameOver) continue;
+        if (this.spawnQueue.length > 0 || this.monsters.length > 0) {
+          logOutput("현재 웨이브가 아직 진행 중입니다!", "#fbbf24");
+          continue;
+        }
+        this.startNextWave();
+      } else if (cmd.type === "PLACE_TOWER") {
+        if (this.gameOver) continue;
+        const spec = this.towerCatalog[this.selectedTowerKey];
+        if (this.gold < spec.cost) {
+          logOutput(`골드가 부족합니다. (${spec.label}: ${spec.cost}G 필요)`, "#f87171");
+          continue;
+        }
+        if (!this.isValidPlacement(cmd.x, cmd.y)) {
+          logOutput("경로 위나 다른 타워와 너무 가까운 위치에는 건설할 수 없습니다.", "#f87171");
+          continue;
+        }
+        const newTower = new spec.cls(cmd.x, cmd.y);
+        this.towers.push(newTower);
+        this.gold -= spec.cost;
+        logOutput(`${newTower.name} 건설 완료! (-${spec.cost}G)`, newTower.color);
+        this.updateHud();
+      }
+    }
+  }
+
+  startNextWave() {
+    this.wave++;
+    const count = 6 + this.wave * 3;
+    const hp = Math.round(55 + Math.pow(this.wave, 1.45) * 32);
+    const speed = Math.min(130, 58 + this.wave * 4);
+    const reward = 12 + Math.floor(this.wave * 1.5);
+
+    for (let i = 0; i < count; i++) {
+      this.spawnQueue.push({ hp, speed, reward });
+    }
+    this.spawnTimer = 0.2;
+    logOutput(`=== 웨이브 ${this.wave} 시작! (몬스터 ${count}마리, 체력 ${hp}) ===`, "#10b981");
+    this.updateHud();
+  }
+
+  // [갱신(Update) 단계]
+  update(dt) {
+    if (this.gameOver) return;
+
+    // 1. 몬스터 스폰 처리
+    if (this.spawnQueue.length > 0) {
+      this.spawnTimer -= dt;
+      if (this.spawnTimer <= 0) {
+        const data = this.spawnQueue.shift();
+        this.monsters.push(new Monster(data.hp, data.speed, data.reward, this.path));
+        this.spawnTimer = Math.max(0.35, 0.85 - this.wave * 0.03);
+      }
+    }
+
+    // 2. 타워 버프 초기화 후 SupporterTower 우선 적용 -> 일반 타워 공격 갱신
+    for (const t of this.towers) t.resetBuff();
+    for (const t of this.towers) {
+      if (t instanceof SupporterTower) t.update(dt, this);
+    }
+    for (const t of this.towers) {
+      if (!(t instanceof SupporterTower)) t.update(dt, this);
+    }
+
+    // 3. 투사체 갱신
+    for (const p of this.projectiles) p.update(dt, this.monsters);
+    this.projectiles = this.projectiles.filter((p) => p.active);
+
+    // 4. 몬스터 이동 및 사망/기지 도달 판정
+    let hudDirty = false;
+    for (const m of this.monsters) {
+      m.update(dt);
+      if (m.dead) {
+        this.gold += m.reward;
+        hudDirty = true;
+      } else if (m.reachedEnd) {
+        this.lives = Math.max(0, this.lives - 1);
+        logOutput(`몬스터가 방어선을 돌파했습니다! (남은 생명력: ${this.lives})`, "#f87171");
+        hudDirty = true;
+        if (this.lives <= 0) {
+          this.gameOver = true;
+          logOutput(`게임 오버! 최종 도달 웨이브: ${this.wave}`, "#ef4444");
+        }
+      }
+    }
+    this.monsters = this.monsters.filter((m) => !m.dead && !m.reachedEnd);
+
+    // 5. 시각 이펙트 갱신
+    for (const fx of this.effects) fx.update(dt);
+    this.effects = this.effects.filter((fx) => fx.alive);
+
+    if (hudDirty) this.updateHud();
+  }
+
+  // [출력 / 렌더링(Render) 단계]
+  render() {
+    const ctx = this.ctx;
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // 배경 그리드
+    ctx.strokeStyle = "rgba(255,255,255,0.03)";
+    ctx.lineWidth = 1;
+    for (let x = 0; x < this.canvas.width; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, this.canvas.height); ctx.stroke();
+    }
+    for (let y = 0; y < this.canvas.height; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(this.canvas.width, y); ctx.stroke();
+    }
+
+    // 몬스터 이동 도로 렌더링
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#332c22";
+    ctx.lineWidth = 38;
+    ctx.beginPath();
+    ctx.moveTo(this.path[0].x, this.path[0].y);
+    for (let i = 1; i < this.path.length; i++) ctx.lineTo(this.path[i].x, this.path[i].y);
+    ctx.stroke();
+
+    ctx.strokeStyle = "#4a4031";
+    ctx.lineWidth = 2;
+    ctx.setLineDash([8, 8]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 배치 미리보기 (사거리 표시)
+    if (!this.gameOver && this.mousePos.x >= 0 && this.mousePos.y >= 0) {
+      const valid = this.isValidPlacement(this.mousePos.x, this.mousePos.y);
+      const previewSpec = this.towerCatalog[this.selectedTowerKey];
+      const tempRange = previewSpec.key === "cannon" ? 145 : previewSpec.key === "ice" ? 120 : previewSpec.key === "supporter" ? 110 : 130;
+
+      ctx.beginPath();
+      ctx.arc(this.mousePos.x, this.mousePos.y, tempRange, 0, Math.PI * 2);
+      ctx.fillStyle = valid ? "rgba(56, 189, 248, 0.1)" : "rgba(248, 113, 113, 0.15)";
+      ctx.fill();
+      ctx.strokeStyle = valid ? "rgba(56, 189, 248, 0.4)" : "rgba(248, 113, 113, 0.5)";
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(this.mousePos.x, this.mousePos.y, 14, 0, Math.PI * 2);
+      ctx.fillStyle = valid ? "rgba(255,255,255,0.4)" : "rgba(239,68,68,0.6)";
+      ctx.fill();
+    }
+
+    // 타워 렌더링
+    for (const t of this.towers) {
+      // 서포터 오라 또는 사거리 원
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, t.range, 0, Math.PI * 2);
+      if (t instanceof SupporterTower) {
+        ctx.fillStyle = "rgba(232, 121, 249, 0.08)";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(232, 121, 249, 0.35)";
+      } else {
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+      }
+      ctx.stroke();
+
+      // 타워 본체
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, 15, 0, Math.PI * 2);
+      ctx.fillStyle = t.color;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#0f172a";
+      ctx.stroke();
+
+      // 버프 상태 표시
+      if (t.buffMultiplier > 1.0) {
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, 19, 0, Math.PI * 2);
+        ctx.strokeStyle = "#e879f9";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+
+      // 타워 이니셜 라벨
+      ctx.fillStyle = "#0f172a";
+      ctx.font = "bold 11px sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(t.name[0], t.x, t.y);
+    }
+
+    // 몬스터 렌더링
+    for (const m of this.monsters) {
+      ctx.beginPath();
+      ctx.arc(m.x, m.y, 11, 0, Math.PI * 2);
+      ctx.fillStyle = m.slowTimer > 0 ? "#38bdf8" : "#ef4444";
+      ctx.fill();
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // 체력바
+      const hpRatio = m.hp / m.maxHp;
+      ctx.fillStyle = "#1e293b";
+      ctx.fillRect(m.x - 14, m.y - 19, 28, 4);
+      ctx.fillStyle = "#22c55e";
+      ctx.fillRect(m.x - 14, m.y - 19, 28 * hpRatio, 4);
+    }
+
+    // 투사체 렌더링
+    for (const p of this.projectiles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    }
+
+    // 폭발/냉기 이펙트 렌더링
+    for (const fx of this.effects) {
+      const progress = 1 - fx.timer / fx.duration;
+      ctx.beginPath();
+      ctx.arc(fx.x, fx.y, fx.maxRadius * progress, 0, Math.PI * 2);
+      ctx.fillStyle = fx.color;
+      ctx.fill();
+    }
+
+    // 게임 오버 오버레이
+    if (this.gameOver) {
+      ctx.fillStyle = "rgba(15, 23, 42, 0.78)";
+      ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      ctx.fillStyle = "#f87171";
+      ctx.font = "bold 34px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("GAME OVER", this.canvas.width / 2, this.canvas.height / 2 - 12);
+      ctx.fillStyle = "#e2e8f0";
+      ctx.font = "16px sans-serif";
+      ctx.fillText(`최종 도달 웨이브: ${this.wave} (초기화 버튼을 눌러 재시작)`, this.canvas.width / 2, this.canvas.height / 2 + 24);
+    }
+  }
+
+  updateHud() {
+    document.getElementById("goldDisplay").textContent = this.gold;
+    document.getElementById("lifeDisplay").textContent = this.lives;
+    document.getElementById("waveDisplay").textContent = this.wave;
+    document.getElementById("selectedDisplay").textContent = this.towerCatalog[this.selectedTowerKey].label;
+  }
+}
+
+// ==========================================
+// 메인 루프 실행 (Input -> Update -> Render)
+// ==========================================
+const canvas = document.getElementById("gameCanvas");
+const game = new TowerDefenseGame(canvas);
+
+let lastTime = performance.now();
+function gameLoop(now) {
+  const dt = Math.min(0.05, (now - lastTime) / 1000);
+  lastTime = now;
+
+  game.processInput(); // 1. 입력 처리
+  game.update(dt);     // 2. 상태 갱신
+  game.render();       // 3. 화면 출력 및 렌더링
+
+  requestAnimationFrame(gameLoop);
+}
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>

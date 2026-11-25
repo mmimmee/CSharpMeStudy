@@ -14,6 +14,7 @@
     <Compile Remove="배열.cs" />
     <Compile Remove="상수와열거형2.cs" />
     <Compile Remove="열거활용 게임 예제.cs" />
+    <Compile Remove="정적맴버와객체복사.cs" />
     <Compile Remove="클래스.cs" />
   </ItemGroup>
 
